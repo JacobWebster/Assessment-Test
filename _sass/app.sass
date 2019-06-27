@@ -1,0 +1,399 @@
+// VARIABLES
+$color1: #147694
+$color2: #1a9dc5
+$color3: #bfbfbf
+$white: #ffffff
+
+$font-size: 1.4rem
+$primary-font: 'Open Sans', sans-serif
+$secondary-font: 'Passion One', sans-serif
+
+$fixed-width: 1050px
+$tablet-break: 750px
+$mobile-break: 600px
+
+// STYLES
+//==========================
+//  NOTE html is set to 62.5% so that all the REM measurements throughout are based on 10px sizing. So basically 1.5rem = 15px :)
+html 
+  font-size: 62.5% 
+
+body
+  background: $white
+  color: $color1
+  font-size: $font-size
+  font-family: $primary-font
+  margin: 0
+  line-height: 1.5
+  font-weight: normal
+
+.container
+  max-width: $fixed-width
+  width: 100%
+  margin: 0 auto
+  padding: 0 2rem
+  box-sizing: border-box
+
+.constrained 
+  width: calc(#{$fixed-width} / 1.5)
+
+
+// Animations
+@keyframes fade
+  0% 
+    opacity: 0
+    transform: scale(0)
+  100%
+    opacity: 1
+    transform: scale(1)
+
+@keyframes fade-out
+  0% 
+    opacity: 1
+  100%
+    opacity: 0
+
+// Hide item class
+.hidden
+  display: none
+  animation-name: fade-out
+
+// Typogrphy
+//==========================
+h1,h2,h3,h4,h5
+  margin: 0
+  font-weight: normal
+  color: $color1
+h1
+  font-family: $secondary-font
+  font-weight: 900
+  color: #dc3e00
+  -webkit-text-stroke: 1px white
+  text-shadow:  2px 2px 1px rgba(0,0,0,0.3)
+  font-size: $font-size + 3.5
+  letter-spacing: .2rem
+  -webkit-font-smoothing: antialiased
+  line-height: 1
+h2
+   font-weight: 700
+h3
+  color: white
+  font-size: $font-size + .5
+h4
+  font-size: $font-size + .4
+  font-weight: 700
+h5
+  font-size: $font-size + .3
+  font-weight: 700
+
+.smaller
+  font-size: $font-size - .3
+a
+  text-decoration: none
+  transition: background-color .3s
+  border-radius:.5rem
+  padding: .25rem 0
+  &:hover
+    background-color: rgba(0,0,0,0.2)
+
+// Sections
+//==========================
+.section
+  padding: 2rem
+  width: 100%
+  display: flex
+  align-items: center
+  border-bottom: 5px solid $color3
+  box-sizing: border-box
+  @media screen and (max-width: #{$tablet-break})
+    padding: 1rem
+  @media screen and (max-width: #{$mobile-break})
+    padding: 1rem 0
+
+  // Header Section
+  .header-wrap
+    box-sizing: border-box
+    position: relative
+    display: flex
+    align-items: center
+    z-index: 4
+    @media screen and (max-width: #{$mobile-break})
+      text-align: center
+      padding: 0
+      margin-bottom: 4rem
+
+    .header-copy
+      position: relative
+      z-index: 5
+      @media screen and (max-width: #{$mobile-break})
+        position: absolute
+        padding: 1rem 2.5rem
+        height: 220px
+        top: 0
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        h2
+          margin-top: 3rem
+          line-height: 2.5
+
+    .header-img 
+      width: 225px
+      height: 200px
+      border-radius: 0 0 50% 50%
+      border: 2px solid white
+      border-top: none
+      overflow: hidden
+      box-shadow: 0px 3px 2px rgba(0,0,0,0.3)
+      position: absolute
+      top: -50px
+      right: 5%
+      display: flex
+      justify-content: center
+      box-sizing: border-box
+      @media screen and (max-width: #{$mobile-break})
+        right: 0
+        left: 0
+        top: -30px
+        width: 100%
+        margin: 0 auto
+        position: relative
+
+      img
+        width: 320px
+        height: 320px
+        margin-top:-50px
+        @media screen and (max-width: #{$mobile-break})
+           width: 100%
+
+// Card Section
+.blue
+  background: $color2
+  color: $white
+  border-top: 2px solid  rgba(0,0,0,0.3)
+  border-bottom: none
+  padding: 3rem
+  @media screen and (max-width: #{$mobile-break})
+    padding: 1.5rem
+
+  h4
+    color: $white
+  a
+    color:$white
+    text-decoration: underline
+
+  .card-wrap
+    background: rgba(0,0,0,0.2)
+    padding: 2rem
+    border-radius: 1rem
+    .row
+      margin: -2rem -1rem 0
+      justify-content: center
+      @media screen and (max-width: #{$tablet-break})
+        margin: -2rem 0 0
+
+  .check-form 
+    display: flex
+    justify-content: flex-end
+    p
+      margin: 0 0 0 0
+ 
+  label
+    margin-left:1rem
+    display: flex
+    cursor: pointer
+    align-items: center
+    margin-bottom: 1rem
+
+.card
+  background: $white
+  border-radius: .5rem
+  box-shadow: 0 2px 3px 2px rgba(0,0,0,0.3)
+  color: $color1
+  text-align: center
+  flex: 1 1 230px
+  border: 1px solid $white
+  position: relative
+  animation-name: fade
+  animation-duration: 400ms
+  margin-top:2rem
+  margin-right: 1rem
+  margin-left: 1rem
+  max-width: 235px
+  @media screen and (max-width: #{$tablet-break})
+    max-width: 100%
+    flex: 1 1 100%
+    margin-right: 0rem
+    margin-left: 0rem    
+
+  .card-img 
+    position: relative
+    height:150px
+    overflow: hidden
+    border-radius: .5rem .5rem 0 0
+    img
+      display: block
+      position: relative
+      left: 0
+      right: 0
+      bottom: 0
+      width: 100%
+      min-height: 150px
+      @media screen and (max-width: #{$tablet-break})
+        height: auto
+
+  .card-content
+    padding: 1.5rem
+    margin-bottom: 1.8rem
+  
+  .card-action
+    text-align: center
+    padding: 1rem 0
+    position: absolute
+    bottom: .5rem
+    width: 100%
+    a
+      color: $color1
+      padding: .5rem 1rem
+      text-decoration: none
+      &:hover
+        background-color: $color1
+        color: $white
+ 
+
+// Column Section    
+.row
+  display: flex
+  flex-wrap: wrap
+  @media screen and (max-width: #{$tablet-break})
+    display: block
+
+  .col
+    border-top:1px solid $color1
+    padding: 1rem 0
+    flex: 1 1 100%
+    max-width: 30%
+    @media screen and (max-width: #{$tablet-break})
+      max-width: 100%
+
+    &:not(:last-child)
+      margin-right: 2rem
+      @media screen and (max-width: #{$tablet-break})
+        margin-right: 0
+      
+    ul 
+      margin: 2rem 2rem 1rem 2rem
+      padding: 0
+    p
+      display: flex
+
+    img 
+      height: 120px
+      width: auto
+      display: block
+      float: left
+
+// Navigation
+//==========================
+.nav-bar
+  background: $color1
+  border-bottom: 4px solid  rgba(0,0,0,0.3)
+  position: relative
+  z-index: 5
+  padding: .5rem 2rem
+  width: 100%
+  display: flex
+  align-items: center
+  box-sizing: border-box
+
+  .nav-wrapper
+    display: flex
+    align-items: center 
+    @media screen and (max-width: #{$mobile-break})
+      flex-direction: column
+
+    ul
+      margin: 0
+      padding: 0
+      display: flex
+      justify-content: flex-end
+      flex: 1
+
+      li
+        display: inline-flex
+        list-style-type: none
+        position: relative
+        transition: background-color .3s
+
+        //Submenu Settings
+        .dropdown
+          background: $color1
+          padding: 0
+          visibility: hidden
+          opacity: 0
+          min-width: 5rem
+          position: absolute
+          transition: all 0.5s ease
+          top: 3rem
+          left: 0
+          display: none
+          box-shadow: 0 2px 3px 2px rgba(0,0,0,0.3)
+
+          &:hover
+            visibility: visible
+            opacity: 1
+            display: block
+
+          li
+            clear: both
+            width: 100%
+            background-color: rgba(0,0,0,0.2)
+
+            &:hover
+              a
+                text-decoration: underline
+
+        &:hover, &:focus-within
+          .dropdown
+            visibility: visible
+            opacity: 1
+            display: block
+            outline: 0
+
+        &:hover
+          background-color: rgba(0,0,0,0.2)
+        a
+          font-size: $font-size + .1
+          color: #fff
+          display: inline-flex
+          align-items: center
+          padding: .5rem 1.5rem
+          cursor: pointer
+          white-space: nowrap
+          width: 100%
+
+          &:hover, &:active, &:focus
+            background-color: rgba(0,0,0,0.2)
+            outline: 0
+
+        //Submenu Arrow
+        .has-submenu:after
+          content:''
+          margin-left: 1rem
+          border: solid $white
+          border-width: 0 2px 2px 0
+          display: inline-block
+          width: 1px
+          height: 1px
+          padding: 3px
+          transform: rotate(45deg)
+
+// Footer
+//==========================  
+footer
+  color: $white
+  background: $color1
+  border-top: 4px solid  rgba(0,0,0,0.3)
+  text-align: center 
+  display: flex
+  align-items: center
